@@ -1,0 +1,8 @@
+---
+vector_package_name: "vector-{{ vector_version }}-1.x86_64.rpm"
+vector_url: "https://packages.timber.io/vector/{{ vector_version }}/{{ vector_package_name }}"
+vector_config_dir: "/etc/vector"
+vector_config_file: "{{ vector_config_dir }}/vector.yml"
+vector_download_path: "/tmp/{{ vector_package_name }}"
+vector_service_name: "vector"
+vector_binary: "/usr/bin/vector"

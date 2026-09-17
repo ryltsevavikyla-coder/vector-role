@@ -1,0 +1,18 @@
+---
+- name: Vector | Download RPM package
+  ansible.builtin.get_url:
+    url: "{{ vector_url }}"
+    dest: "{{ vector_download_path }}"
+    mode: "0644"
+- name: Vector | Install RPM package
+  become: true
+  ansible.builtin.yum:
+    name: "{{ vector_download_path }}"
+    state: present
+    disable_gpg_check: true
+- name: Vector | Ensure config directory exists
+  become: true
+  ansible.builtin.file:
+    path: "{{ vector_config_dir }}"
+    state: directory
+    mode: "0755"
